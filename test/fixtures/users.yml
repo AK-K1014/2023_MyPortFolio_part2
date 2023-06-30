@@ -1,0 +1,15 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  email: MyString
+  password_digest: MyString
+  activated: false
+  activated_at: 2023-06-30 15:11:11
+  introduction: MyText
+
+two:
+  email: MyString
+  password_digest: MyString
+  activated: false
+  activated_at: 2023-06-30 15:11:11
+  introduction: MyText

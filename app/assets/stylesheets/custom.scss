@@ -81,3 +81,48 @@ flex: none;
 order: 1;
 flex-grow: 0;
 }
+
+/*トップ画面*/
+/*自己紹介*/
+.self-introduction {
+  padding-bottom: 150px;
+  padding-left: 45%;
+}
+
+.self {
+  width: 240px;
+  height: 40px;
+  border-bottom:2px solid #333
+}
+
+/*スキルチャート*/
+.chart {
+  margin-bottom: 20px ;
+  padding: 10px 40%;
+  width: 40%;
+}
+
+.skill {
+  margin-left: 10%;
+  padding: 0px 0px 0px 70px;
+  width: 340px;
+  height: 40px;
+  border-bottom:2px solid #333
+}
+
+.px-1 {
+  padding-right: 100%;
+}
+
+/*アバター画像*/
+.avatar {
+  position: absolute;
+  top: 15%;
+  left: 25%;
+}
+
+/*スキルチャート画像*/
+.skill_chart {
+  position: absolute;
+  left: 22%;
+} 

@@ -1,24 +1,20 @@
-@import  "bootstrap-sprockets";
 @import  "bootstrap";
 
-body {
-  padding: 150px 50px 150px;
-  // padding-left: 1450px;
-
-}
+// body {
+//   padding: 0px 0px 150px;
+// }
 
 .h1 {
   padding-top: 100px;
 }
 
 .con {
-  padding-top: 20px;
   font-size: large;
 }
 
 // <header>
 #title {
-  margin-left: 20px;             
+  margin-left: 30px;             
   font-size: 2.5em;              
   color: #fff;                 
   height: auto;
@@ -38,7 +34,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: flex-end;
-  height: 100%;
+  height: 200%;
 }
 
 /*footer*/
@@ -65,7 +61,6 @@ body {
 flex-direction: row;
 justify-content: center;
 align-items: center;
-margin-top: -48px;
 margin-right: 40px;
 width: 152px;
 height: 53px;
@@ -85,8 +80,7 @@ flex-grow: 0;
 /*トップ画面*/
 /*自己紹介*/
 .self-introduction {
-  padding-bottom: 150px;
-  padding-left: 45%;
+  padding: 3% 10% 10% 48%;
 }
 
 .self {
@@ -98,13 +92,13 @@ flex-grow: 0;
 /*スキルチャート*/
 .chart {
   margin-bottom: 20px ;
-  padding: 10px 40%;
+  padding: 0% 0% 0% 40% ;
   width: 40%;
 }
 
 .skill {
   margin-left: 10%;
-  padding: 0px 0px 0px 70px;
+  padding: 0% 0px 0px 70px;
   width: 340px;
   height: 40px;
   border-bottom:2px solid #333
@@ -115,14 +109,17 @@ flex-grow: 0;
 }
 
 /*アバター画像*/
-.avatar {
+.avatar img {
   position: absolute;
+  width: 15%;
   top: 15%;
-  left: 25%;
+  left: 30%;
 }
 
 /*スキルチャート画像*/
-.skill_chart {
+.skill_chart img {
   position: absolute;
-  left: 22%;
+  width: 50%;
+  bottom: 10%;
+  left: 23%;
 } 

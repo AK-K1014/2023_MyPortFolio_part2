@@ -1,0 +1,31 @@
+<% provide(:title, "users") %>
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= yield(:title) %> | My Portfolio</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+  </head>
+
+  <body>
+    <div class="self-introduction px-4">
+      <h2 class="self border-bottom border-danger">自己紹介</h2>
+      <p>ここに自己紹介文を記載する。</br>
+        私の名前は工藤丸です。
+      </p>
+      <button type="button" class="btn-profile-edit btn-bule btn-lg"><%= link_to "自己紹介を編集する", '#' %></button>
+    </div>
+
+
+
+    <div class="chart d-flex align-items-center">
+      <h2 class="skill pd-4">スキルチャート</h2>
+    </div>
+      <img src="images/d2f6d7629a9e2bfd1f2e4c8e1aabefca.jpg" class="ps-5"  width="1000" hight="1000" alt="スキルチャート">
+    <div class="container">
+      <%= yield %>
+    </div>
+  </body>
+</html>

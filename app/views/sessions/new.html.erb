@@ -11,7 +11,6 @@
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
   </head>
   <body>
-
     <div class="container">
       <div class="col-align-self-center">
         <h1 class="login_title text-center">ログイン</h1>
@@ -31,11 +30,6 @@
             <%= f.submit "ログインする", class: "btn-primary" %>
           </div>
         <% end %>
-      </div>
-    </div>
-
-      <div class="container">
-        <%= yield %>
       </div>
     </div>
   </body>

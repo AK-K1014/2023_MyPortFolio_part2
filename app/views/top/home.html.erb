@@ -10,25 +10,25 @@
   </head>
 
   <body>
-    <%= render 'layouts/header' %>
-    <div class="self-introduction">
-      <h2 class="self border-bottom">自己紹介</h2>
-      <p class="text-danger">ログインして、自己紹介文と画像を登録しましょう！</p>
-    </div>
-
-    <div class="avatar d-flex aligin-item-center">
-      <img src="/assets/スクリーンショット 2023-05-30 11.03.34.png" max-width="300" max-hight="300"  alt="アバター">
-    </div>
-
-    <div class="chart">
-      <h2 class="skill">スキルチャート</h2>
-    </div>
-    <div class="skill_chart aligin-item-center">
-      <img src="/assets/d2f6d7629a9e2bfd1f2e4c8e1aabefca.jpg" class="ps-5" width="1046" hight="500" alt="スキルチャート">
-    </div>
     <div class="container">
-      <%= yield %>
-      <%= render 'layouts/footer' %>
+      <div class="col-align-self-center">
+        <div class="self-introduction">
+          <h2 class="self border-bottom">自己紹介</h2>
+          <p class="text-danger">ログインして、自己紹介文と画像を登録しましょう！</p>
+        </div>
+
+        <div class="avatar aligin-item-center">
+          <img src="assets/image.png" class="rounded-circle" style="width: 270px;" alt="Avatar" />
+        </div>
+
+        <div class="chart">
+          <h2 class="skill">スキルチャート</h2>
+        </div>
+        <div class="skill_chart aligin-item-center">
+          <img src="/assets/d2f6d7629a9e2bfd1f2e4c8e1aabefca.jpg" class="ps-5" alt="スキルチャート">
+        </div>
+        </div>
+      </div>
     </div>
   </body>
 </html>

@@ -11,9 +11,18 @@ class UsersController < ApplicationController
     redirect_to users_url
   end
 
-  # private
+  def edit
+  end
+  
+  def update
+    binding.pry
+    @user = current_user
+    @user.update(user_params)
+  end
 
-  # def user_params
-  #   params.require(:user).permit(:description, :image)
-  # end
+  private
+
+  def user_params
+    params.require(:user).permit(:description, :image)
+  end
 end

@@ -15,17 +15,12 @@
       <p>ここに自己紹介文を記載する。</br>
         私の名前は工藤丸です。
       </p>
-      <button type="button" class="btn-profile-edit btn-bule btn-lg"><%= link_to "自己紹介を編集する", '#' %></button>
+      <button type="button" class="btn-profile-edit btn-bule btn-lg"><%= link_to "自己紹介を編集する", edit_user_path(current_user) %></button>
     </div>
-
-
 
     <div class="chart d-flex align-items-center">
       <h2 class="skill pd-4">スキルチャート</h2>
     </div>
-      <img src="images/d2f6d7629a9e2bfd1f2e4c8e1aabefca.jpg" class="ps-5"  width="1000" hight="1000" alt="スキルチャート">
-    <div class="container">
-      <%= yield %>
-    </div>
+      <img src="assets/d2f6d7629a9e2bfd1f2e4c8e1aabefca.jpg" class="ps-5"  width="1000" hight="1000" alt="スキルチャート">
   </body>
 </html>

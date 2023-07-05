@@ -1,0 +1,20 @@
+<body>
+  <h1>自己紹介を編集する</h1>
+  <div>
+    <p>自己紹介文</p>
+      <div class="control">
+        <div class="label">自己紹介文</div>
+        <input type="text" class="form-control">
+        <div class="label">２００文字以内で収める</div>
+      </div>
+    </div>
+  </div>
+
+    <div class="">
+      <%= form_with model: @user,local: true do |f| %>
+        <%= f.text_area :description %><br>
+        <%= f.file_field :image %><br>
+        <%= f.submit%>
+      <% end %>
+    </div>
+</body>

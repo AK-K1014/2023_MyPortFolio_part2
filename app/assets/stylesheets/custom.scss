@@ -74,8 +74,11 @@ flex-grow: 0;
 /*トップ画面*/
 /*自己紹介*/
 .self-introduction {
-  float: right;
-  padding: 3% 10% 10% 8%;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  flex-direction: column;
+  padding-left: 36%;
 }
 
 .self {
@@ -245,4 +248,19 @@ line-height: 21px;
 /* ボックスの高さと同一 */
 
 color: #FFFFFF;
+}
+
+.btn-profile-edit {
+  margin: 5% 0% 0% 36%;
+  /* primary-color */
+  background: #1B5678;
+  border-radius: 4px;
+  color: #FFFFFF;
+}
+
+.profile-image {
+  position: absolute;
+  top: 150px;
+  left: 150px;
+  width: 25%;
 }

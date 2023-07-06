@@ -1,0 +1,7 @@
+<li id="user-<%= user.id %>">
+  <%= link_to gravatar_for(user.image, size: 50), user.[:id] %>
+  <span class="introduction"><%= user.introduction %></span>
+  <span class="timestamp">
+    Posted <%= time_ago_in_words(user.created_at) %> ago.
+  </span>
+</li>

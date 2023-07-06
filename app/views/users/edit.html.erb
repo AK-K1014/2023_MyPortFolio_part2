@@ -5,12 +5,12 @@
         <%= form_with model: @user,local: true do |f| %>
           <div class="label_introduction">
             <p>自己紹介文</p>
-            <%= f.text_area :introduction, class: "text_area" %><br>
+            <%= f.text_area :introduction, class: "text_area", value: @user.introduction %><br>
             <p>200文字以上、800文字未満で入力してください</p>
           </div>
           <div class="edit_image_group">
             <div class="label_avater">アバター画像</div>
-            <%= f.file_field :image, class: "edit_image_button" %><br>
+            <%= f.file_field :image, accept: "image/jpeg,image/gif,image/png", class: "edit_image_button" %><br>
           </div>
             <%= f.submit "自己紹介を確定する", class: "edit_button" %>
         <% end %>

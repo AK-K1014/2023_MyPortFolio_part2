@@ -16,12 +16,12 @@
           <h2 class="self border-bottom">自己紹介</h2>
           <%= @user.introduction %>
         </div>
-          <button type="button" class="btn-profile-edit btn-white"><%= link_to "自己紹介を編集する", edit_user_path(current_user) %></button>
+          <button type="button" class="btn-profile-edit"><%= link_to "自己紹介を編集する", edit_user_path(current_user), style: "color: white" %></button>
           <%= image_tag @user.image, class: "profile-image" if @user.image.attached? %>
         <div class="chart align-items-center">
           <h2 class="skill pd-4">スキルチャート</h2>
-          <button type="button" class="btn-profile-edit"><%= link_to "スキルを編集する", "#" %></button>
         </div>
+          <button type="button" class="btn-skill-edit"><%= link_to "スキルを編集する", "#", style: "color: white" %></button>
       </div>
     </div>
   </body>

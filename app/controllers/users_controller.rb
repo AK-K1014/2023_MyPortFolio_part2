@@ -11,9 +11,20 @@ class UsersController < ApplicationController
     redirect_to users_url
   end
 
-  # private
+  def edit
+    @user = User.find(params[:id])
+  end
+  
+  def update
+    @user = User.find(params[:id])
+    @user.update(user_params)
+    @user.image.attach(params[:user][:image])
+    redirect_to @user
+  end
 
-  # def user_params
-  #   params.require(:user).permit(:description, :image)
-  # end
+  private
+
+  def user_params
+    params.require(:user).permit(:introduction, :image)
+  end
 end

@@ -270,3 +270,28 @@ color: #FFFFFF;
   left: 12%;
   width: 23%;
 }
+
+.card {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin: 80px 90px 40px 90px;
+  padding: 40px;
+}
+
+.card-body {
+  width: 100%;
+}
+
+.backend-title {
+  width: 250px;
+  margin-bottom: 32px;
+}
+
+.btn-skill-new {
+  position: absolute;
+  top: 65px;
+  right: 60px;
+  margin-bottom: 32px;
+}

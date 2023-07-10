@@ -1,0 +1,38 @@
+<body>
+  <div class="card">
+    <div class="card-body">
+      <%= @category.find_by(name: 'インフラ')&.name %>
+      <button type="button" class="btn-skill-new btn-blue"><%= link_to "スキルを追加する", '#' %></button>
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">習得スキル</th>
+            <th scope="col">習得レベル</th>
+            <th scope="col"></th>
+            <th scope="col"></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Heroku</td>
+            <td><%= render 'layouts/dropdown'%></td>
+            <td><button type="button" class="btn-skill-save btn-blue"><%= link_to "習得レベルを保存する", '#' %></button></td>
+            <td><button type="button" class="btn-skill-delete btn-blue"><%= link_to "スキルを削除する", '#' %></td>
+          </tr>
+          <tr>
+            <td>AWS</td>
+            <td><%= render 'layouts/dropdown'%></td>
+            <td><button type="button" class="btn-skill-save btn-blue"><%= link_to "習得レベルを保存する", '#' %></td>
+            <td><button type="button" class="btn-skill-delete btn-blue"><%= link_to "スキルを削除する", '#' %></td>
+          </tr>
+          <tr>
+            <td>Firebase</td>
+            <td><%= render 'layouts/dropdown'%></td>
+            <td><button type="button" class="btn-skill-save btn-blue"><%= link_to "習得レベルを保存する", '#' %></td>
+            <td><button type="button" class="btn-skill-delete btn-blue"><%= link_to "スキルを削除する", '#' %></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</body>

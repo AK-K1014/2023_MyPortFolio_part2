@@ -1,9 +1,9 @@
 <body>
-<% @categories.each do |category| %>
   <div class="card">
     <div class="card-body">
+      <% category = @categories.find_by(id: 1) %>
       <h2 class="backend-title" style="border-bottom: 1px solid black"><%= category.name %></h2>
-      <button type="button" class="btn-skill-new btn-blue"><%= link_to "スキルを追加する", '#' %></button>
+      <button type="button" class="btn-skill-new btn-blue"><%= link_to "スキルを追加する", skill_new_path(category_id: category.id) %></button>
       <table class="table">
         <thead>
           <tr>
@@ -26,5 +26,4 @@
       </table>
     </div>
   </div>
-<% end %>
 </body>

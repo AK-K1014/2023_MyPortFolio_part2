@@ -1,0 +1,29 @@
+<body>
+  <div class="card">
+    <div class="card-body">
+      <% category = @categories.find_by(id: 2) %>
+      <h2 class="backend-title" style="border-bottom: 1px solid black"><%= category.name %></h2>
+      <button type="button" class="btn-skill-new btn-blue"><%= link_to "スキルを追加する", skill_new_path(category_id: category.id) %></button>
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">習得スキル</th>
+            <th scope="col">習得レベル</th>
+            <th scope="col"></th>
+            <th scope="col"></th>
+          </tr>
+        </thead>
+        <tbody>
+        <% category.skills.each do |skill| %>
+          <tr>
+            <td><%= skill.name %></td>
+            <td><%= render 'layouts/dropdown'%></td>
+            <td><button type="button" class="btn-skill-save btn-blue"><%= link_to "習得レベルを保存する", '#' %></button></td>
+            <td><button type="button" class="btn-skill-delete btn-blue"><%= link_to "スキルを削除する", '#' %></td>
+          </tr>
+        <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</body>

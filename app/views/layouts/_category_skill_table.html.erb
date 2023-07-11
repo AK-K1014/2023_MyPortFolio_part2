@@ -1,7 +1,8 @@
 <body>
+<% @categories.each do |category| %>
   <div class="card">
     <div class="card-body">
-      <%= @category.find_by(name: 'フロントエンド')&.name %>
+      <h2 class="backend-title" style="border-bottom: 1px solid black"><%= category.name %></h2>
       <button type="button" class="btn-skill-new btn-blue"><%= link_to "スキルを追加する", '#' %></button>
       <table class="table">
         <thead>
@@ -13,26 +14,17 @@
           </tr>
         </thead>
         <tbody>
+        <% category.skills.each do |skill| %>
           <tr>
-            <td>HTML</td>
+            <td><%= skill.name %></td>
             <td><%= render 'layouts/dropdown'%></td>
             <td><button type="button" class="btn-skill-save btn-blue"><%= link_to "習得レベルを保存する", '#' %></button></td>
             <td><button type="button" class="btn-skill-delete btn-blue"><%= link_to "スキルを削除する", '#' %></td>
           </tr>
-          <tr>
-            <td>CSS</td>
-            <td><%= render 'layouts/dropdown'%></td>
-            <td><button type="button" class="btn-skill-save btn-blue"><%= link_to "習得レベルを保存する", '#' %></td>
-            <td><button type="button" class="btn-skill-delete btn-blue"><%= link_to "スキルを削除する", '#' %></td>
-          </tr>
-          <tr>
-            <td>JavaScript</td>
-            <td><%= render 'layouts/dropdown'%></td>
-            <td><button type="button" class="btn-skill-save btn-blue"><%= link_to "習得レベルを保存する", '#' %></td>
-            <td><button type="button" class="btn-skill-delete btn-blue"><%= link_to "スキルを削除する", '#' %></td>
-          </tr>
+        <% end %>
         </tbody>
       </table>
     </div>
   </div>
+<% end %>
 </body>

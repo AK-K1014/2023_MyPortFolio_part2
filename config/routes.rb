@@ -10,8 +10,8 @@ Rails.application.routes.draw do
   get    '/skills/index',   to: "skills#index",     as: 'index_skill'
   # patch  '/skills/:id',     to: "skills#update"
   # delete '/skills/:id',      to: "skill#delete"
-  # post   '/skills/new',      to: "skill#new"
-  # post   '/skills/new',      to: "skills#create"
+  get    '/skills/new',      to: "skills#new"
+  post   '/skills/new',      to: "skills#create"
   get    'skills/index',    to: "categories#show"
   
   resources :users, only: [:show, :create, :edit, :update] do

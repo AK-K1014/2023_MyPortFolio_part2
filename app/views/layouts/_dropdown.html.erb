@@ -1,12 +1,6 @@
-<div class="dropdown show">
-  <button class="btn btn-secondary dropdown-toggle" type="button" style="background-color: white; color: black;" id="numberDropdown" data-bs-toggle="dropdown" aria-expanded="false">
-    数字を選択
-    <span class="caret"></span>
-  </button>
-  <ul class="dropdown-menu" aria-labelledby="numberDropdown" style="max-height: 200px; overflow-y: auto;">
-    <!-- 1から100までの数字をループで生成 -->
-    <% (1..100).each do |number| %>
-      <li><div class="dropdown-item"><%= number %></div></li>
-    <% end %>
-  </ul>
-</div>
+<select class="form-select" aria-label="Disabled select example">
+  <option selected>数字を選択してください</option>
+  <% (0..100).step(10).each do |value| %>
+    <option @value="<%= value %>"><%= value %></option>
+  <% end %>
+</select>

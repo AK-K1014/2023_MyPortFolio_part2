@@ -10,8 +10,8 @@ class SkillsController < ApplicationController
   end
 
   def create
-    @category = Category.find(params[:category_id])
-    @skills = @category.skills.build(skill_params)
+    @category = Category.find_by(id: params[:skill][:category_id])
+    @skills = @category.skills.build(skill_params.merge(user_id: current_user.id))
     if @skills.save
       redirect_to skills_index_path(@category)
       flash.now[:success] = "スキルが追加されました"
@@ -23,6 +23,6 @@ class SkillsController < ApplicationController
   private
 
   def skill_params
-    params.permit(:name, :level, :user_id)
+    params.require(:skill).permit(:name, :level, :category_id)
   end
 end

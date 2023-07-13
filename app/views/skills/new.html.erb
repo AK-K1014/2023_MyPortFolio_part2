@@ -2,10 +2,11 @@
 <div class="new-skill">
   <div class="title">
     <p><%= @category.name %>にスキルを追加</p>
+
   </div>
   <div class="row">
     <div class="col-md-4 col-md-offset-4">
-      <%= form_with model: @skill, method: "POST", url: skills_new_path do |f| %>
+      <%= form_with model: [@category, Skill.new], method: "POST", url: skills_new_path do |f| %>
         <%= f.label :name, "習得スキル" %>
         <%= f.text_field :name, class: 'form-control', required: true %>
         <%= f.label :level, "習得レベル" %>

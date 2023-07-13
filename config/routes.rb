@@ -13,7 +13,12 @@ Rails.application.routes.draw do
   # delete '/skills/:id',      to: "skill#delete"
   get    '/skills/new',     to: "skills#new",      as: 'skill_new'
   post   '/skills/new',     to: "skills#create"
+
   resources :users, only: [:show, :create, :edit, :update] do
     resource :skills, only: [:index, :new, :create]
+  end
+
+  resources :categories do
+    resources :skills
   end
 end

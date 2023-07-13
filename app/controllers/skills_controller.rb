@@ -3,7 +3,6 @@ class SkillsController < ApplicationController
 
   def index
     @categories = Category.includes(:skills).all
-    @skill = Skill.find(params[:id])
   end
 
   def new

@@ -13,6 +13,7 @@
         <%= f.select :level, (0..100).step(10), {}, class: 'form-control', required: true %>
           <p>0 ~ 100の間で選択してください</p>
         <%= f.hidden_field :category_id, value: @category.id %>
+        <%= f.hidden_field :skill_id, value: @skill.id %>
         <div class="center-button">
           <%= f.submit "追加する", class: "new-btn" %>
         </div>

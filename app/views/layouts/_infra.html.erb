@@ -17,7 +17,14 @@
         <% category.skills.each do |skill| %>
           <tr>
             <td><%= skill.name %></td>
-            <td><%= render 'layouts/dropdown'%></td>
+            <td>
+              <select class="form-select" aria-label="Disabled select example">
+                <option selected>数字を選択してください</option>
+                <% (0..100).step(10).each do |value| %>
+                  <option @value="<%= value %>" <%= 'selected' if skill.level == value %>><%= value %></option>
+                <% end %>
+              </select>
+            </td>
             <td><button type="button" class="btn-skill-save btn-blue"><%= link_to "習得レベルを保存する", '#' %></button></td>
             <td><button type="button" class="btn-skill-delete btn-blue"><%= link_to "スキルを削除する", '#' %></td>
           </tr>

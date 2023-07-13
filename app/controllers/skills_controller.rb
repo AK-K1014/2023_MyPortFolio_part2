@@ -1,13 +1,14 @@
 class SkillsController < ApplicationController
-  before_action :logged_in_user, only: [:index, :new, :create]
+  before_action :logged_in_user, only: [:index, :new, :create, :update, :delete]
 
   def index
     @categories = Category.includes(:skills).all
+    @skill = Skill.find(params[:id])
   end
 
   def new
-    @category = Category.find_by(params[:id])
-  end
+    @category = Category.find_by(id: params[:category_id])
+  end 
 
   def create
     @category = Category.find_by(id: params[:skill][:category_id])
@@ -18,6 +19,20 @@ class SkillsController < ApplicationController
     else
       render :new
     end
+  end
+
+  def update
+    if @skill.update(skill_params)
+      flash[:success] = "スキルが更新されました"
+      redirect_to action: :index, **skill_params, modal: :update
+    else
+      render :edit
+    end
+  end
+
+  def destroy
+    @skill.destroy
+    redirect_to action: :index, modal: :destroy, status: :see_other
   end
 
   private

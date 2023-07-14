@@ -17,15 +17,15 @@
         <% category.skills.each do |skill| %>
           <tr>
             <td><%= skill.name %></td>
-            <td><select class="form-select" aria-label="Disabled select example">
-              <option selected>数字を選択してください</option>
-                <% (0..100).step(10).each do |value| %>
-                  <option @value="<%= value %>" <%= 'selected' if skill.level == value %>><%= value %></option>
-                <% end %>
-              </select>
+            <td>
+              <%= form_with(model: [skill], local: true, method: :patch) do |f| %>
+                <%= f.select :level, options_for_select((0..100).step(10).map { |value| [value, value, { selected: skill.level == value }] }, skill.level), {}, class: "form-select" %>
+                <%= f.submit "編集", class: "btn btn-primary" %>
+              <% end %>
             </td>
-            <td><%= button_to "編集", { controller: "skills", action: "update" }, { method: :patch } %></td>
-            <td><button type="button" class="btn-skill-delete btn-blue"><%= link_to "スキルを削除する" %></td>
+            <td>
+              <%= link_to "削除", skill_path(skill), data: { turbo_method: :delete } %>
+            </td>
           </tr>
         <% end %>
         </tbody>

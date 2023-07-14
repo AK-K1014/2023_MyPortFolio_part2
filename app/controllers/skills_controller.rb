@@ -1,5 +1,6 @@
 class SkillsController < ApplicationController
   before_action :logged_in_user, only: [:index, :new, :create, :update, :delete]
+  before_action :set_skill, only: [:update, :destroy]
 
   def index
     @categories = Category.includes(:skills).all
@@ -23,20 +24,24 @@ class SkillsController < ApplicationController
   def update
     if @skill.update(skill_params)
       flash[:success] = "スキルが更新されました"
-      redirect_to action: :index, **skill_params, modal: :update
+      redirect_to skills_path
     else
-      render :edit
+      render :index
     end
   end
 
   def destroy
     @skill.destroy
-    redirect_to action: :index, modal: :destroy, status: :see_other
+    redirect_to skills_path
   end
 
   private
 
   def skill_params
     params.require(:skill).permit(:name, :level, :category_id)
+  end
+
+  def set_skill
+    @skill = Skill.find(params[:id])
   end
 end

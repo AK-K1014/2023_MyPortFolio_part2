@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   delete '/logout',            to: "sessions#destroy", as: 'logout'
   get    '/skills/:id',        to: "skills#index",     as: 'index_skill'
   patch  '/skills/:id',        to: "skills#update",    as: 'skill_update'
-  delete '/skills/:id',        to: "skills#delete"
+  delete '/skills/:id',        to: "skills#destroy"
   get    '/skills/new',        to: "skills#new",       as: 'skill_new'
   post   '/skills/new',        to: "skills#create"
 

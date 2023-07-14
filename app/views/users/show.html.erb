@@ -14,7 +14,7 @@
       <div class="col-align-self-center">    
         <div class="self-introduction">
           <h2 class="self border-bottom">自己紹介</h2>
-          <%= @user.introduction %>
+          <%= simple_format(@user.introduction) %>
         </div>
           <button type="button" class="btn-profile-edit"><%= link_to "自己紹介を編集する", edit_user_path(current_user), style: "color: white" %></button>
           <%= image_tag @user.image, class: "profile-image" if @user.image.attached? %>

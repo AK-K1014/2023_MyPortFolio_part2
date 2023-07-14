@@ -17,9 +17,14 @@ class UsersController < ApplicationController
   
   def update
     @user = User.find(params[:id])
-    @user.update(user_params)
-    @user.image.attach(params[:user][:image])
-    redirect_to @user
+    if params[:user][:image].blank? && @user.image.attached?
+      params[:user].delete(:image)
+    end
+    if @user.update(user_params)
+      redirect_to @user
+    else
+      render :edit
+    end
   end
 
   private

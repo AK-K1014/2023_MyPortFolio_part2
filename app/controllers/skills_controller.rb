@@ -14,7 +14,7 @@ class SkillsController < ApplicationController
     @category = Category.find_by(id: params[:skill][:category_id])
     @skills = @category.skills.build(skill_params.merge(user_id: current_user.id))
     if @skills.save
-      redirect_to skills_index_path(@category)
+      redirect_to category_skills_path(@category)
       flash.now[:success] = "スキルが追加されました"
     else
       render :new
@@ -24,7 +24,7 @@ class SkillsController < ApplicationController
   def update
     if @skill.update(skill_params)
       flash[:success] = "スキルが更新されました"
-      redirect_to skills_path
+      redirect_to index_skill_path
     else
       render :index
     end
@@ -32,7 +32,7 @@ class SkillsController < ApplicationController
 
   def destroy
     @skill.destroy
-    redirect_to skills_path
+    redirect_to index_skill_path
   end
 
   private

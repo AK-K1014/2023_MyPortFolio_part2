@@ -32,6 +32,7 @@ class SkillsController < ApplicationController
 
   def destroy
     @skill.destroy
+    flash[:danger] = "スキルが削除されました"
     redirect_to index_skill_path
   end
 

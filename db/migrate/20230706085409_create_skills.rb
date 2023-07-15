@@ -8,7 +8,5 @@ class CreateSkills < ActiveRecord::Migration[7.0]
 
       t.timestamps
     end
-    add_index :skills, [:user_id, :created_at]
-    add_index :skills, :category_id
   end
 end

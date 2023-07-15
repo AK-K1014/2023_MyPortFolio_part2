@@ -1,0 +1,22 @@
+<% provide(:title, 'New') %>
+<div class="new-skill">
+  <div class="title">
+    <p><%= @category.name %>にスキルを追加</p>
+
+  </div>
+  <div class="row">
+    <div class="col-md-4 col-md-offset-4">
+      <%= form_with model: [@category, Skill.new], url: category_skills_path(@category), method: :post do |f| %>
+        <%= f.label :name, "習得スキル" %>
+        <%= f.text_field :name, class: 'form-control', required: true %>
+        <%= f.label :level, "習得レベル" %>
+        <%= f.select :level, (0..100).step(10), {}, class: 'form-control', required: true %>
+          <p>0 ~ 100の間で選択してください</p>
+        <%= f.hidden_field :category_id, value: @category.id %>
+        <div class="center-button">
+          <%= f.submit "追加する", class: "new-btn" %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

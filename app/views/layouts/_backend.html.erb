@@ -3,7 +3,7 @@
     <div class="card-body">
       <% category = @categories.find_by(id: 1) %>
       <h2 class="backend-title" style="border-bottom: 1px solid black"><%= category.name %></h2>
-      <button type="button" class="btn-skill-new btn-blue"><%= link_to "スキルを追加する", skills_new_path(category_id: category.id) %></button>
+      <button type="button" class="btn-skill-new btn-blue"><%= link_to "スキルを追加する", new_category_skill_path(category_id: category.id) %></button>
       <table class="table">
         <thead>
           <tr>
@@ -17,9 +17,15 @@
         <% category.skills.each do |skill| %>
           <tr>
             <td><%= skill.name %></td>
-            <td><%= render 'layouts/dropdown'%></td>
-            <td><button type="button" class="btn-skill-save btn-blue"><%= link_to "習得レベルを保存する", '#' %></button></td>
-            <td><button type="button" class="btn-skill-delete btn-blue"><%= link_to "スキルを削除する", '#' %></td>
+            <td>
+              <%= form_with(model: [category, skill], local: true, method: :patch) do |f| %>
+                <%= f.select :level, options_for_select((0..100).step(10).map { |value| [value, value, { selected: skill.level == value }] }, skill.level), {}, class: "form-select" %>
+                <%= f.submit "習得レベルを保存する", class: "btn btn-primary" %>
+              <% end %>
+            </td>
+            <td>
+              <%= link_to "スキルを削除する", category_skill_path(category, skill), data: { turbo_method: :delete } %>
+            </td>
           </tr>
         <% end %>
         </tbody>

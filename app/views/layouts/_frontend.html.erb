@@ -20,11 +20,11 @@
             <td>
               <%= form_with(model: [category, skill], local: true, method: :patch) do |f| %>
                 <%= f.select :level, options_for_select((0..100).step(10).map { |value| [value, value, { selected: skill.level == value }] }, skill.level), {}, class: "form-select" %>
-                <%= f.submit "編集", class: "btn btn-primary" %>
+                <%= f.submit "習得レベルを保存する", class: "btn btn-primary" %>
               <% end %>
             </td>
             <td>
-              <%= link_to "削除", category_skill_path(category, skill), data: { turbo_method: :delete } %>
+              <%= link_to "スキルを削除する", category_skill_path(category, skill), data: { turbo_method: :delete } %>
             </td>
           </tr>
         <% end %>

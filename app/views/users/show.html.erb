@@ -1,93 +1,17 @@
-<% provide(:title, "users") %>
-<!DOCTYPE html>
-<html>
-  <head>
-    <title><%= yield(:title) %> | My Portfolio</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta charset="utf-8">
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
-  </head>
-
-  <body>
     <div class="container">
       <div class="col-align-self-center">    
         <div class="self-introduction">
           <h2 class="self border-bottom">自己紹介</h2>
           <%= simple_format(@user.introduction) %>
         </div>
-          <button type="button" class="btn-profile-edit"><%= link_to "自己紹介を編集する", edit_user_path(current_user), style: "color: white" %></button>
-          <%= image_tag @user.image, class: "profile-image" if @user.image.attached? %>
+        <button type="button" class="btn-profile-edit"><%= link_to "自己紹介を編集する", edit_user_path(current_user), style: "color: white" %></button>
+        <%= image_tag @user.image, class: "profile-image" if @user.image.attached? %>
         <div class="chart align-items-center">
           <h2 class="skill pd-4">スキルチャート</h2>
         </div>
-          <button type="button" class="btn-skill-edit"><%= link_to "スキルを編集する", index_skill_path, style: "color: white" %></button>
-          <canvas id="myChart" width="400" height="400"></canvas>
-        <script>
-        var ctx = document.getElementById("myChart").getContext('2d');
-        var myChart = new Chart(ctx, {
-            type: 'bar',
-            data: {
-                    labels: ["backend", "frontend", "infra"],
-                    datasets: [{
-                        label: '得票数',
-                        data: [12, 19, 3],
-                        backgroundColor: [
-                            'rgba(25, 99, 132, 0.2)',
-                            'rgba(54, 162, 235, 0.2)',
-                            'rgba(255, 206, 86, 0.2)'
-                        ],
-                        borderColor: [
-                            'rgba(255,99,132,1)',
-                            'rgba(54, 162, 235, 1)',
-                            'rgba(255, 206, 86, 1)'
-                        ],
-                        borderWidth: 1
-                      },
-                      {
-                        label: '得票数',
-                        data: [30, 6, 26],
-                        backgroundColor: [
-                            'rgba(255, 99, 132, 0.2)',
-                            'rgba(54, 162, 235, 0.2)',
-                            'rgba(255, 206, 86, 0.2)'
-                        ],
-                        borderColor: [
-                            'rgba(255,99,132,1)',
-                            'rgba(54, 162, 235, 1)',
-                            'rgba(255, 206, 86, 1)'
-                        ],
-                        borderWidth: 1
-                      },
-                      {
-                      label: '得票数',
-                      data: [30, 6, 26],
-                      backgroundColor: [
-                          'rgba(255, 99, 132, 0.2)',
-                          'rgba(54, 162, 235, 0.2)',
-                          'rgba(255, 206, 86, 0.2)'
-                      ],
-                      borderColor: [
-                          'rgba(255,99,132,1)',
-                          'rgba(54, 162, 235, 1)',
-                          'rgba(255, 206, 86, 1)'
-                      ],
-                      borderWidth: 1
-                      }
-                    ]
-                  },
-            options: {
-                scales: {
-                    yAxes: [{
-                        ticks: {
-                            beginAtZero:true
-                        }
-                    }]
-                }
-            }
-        });
-        </script>
+        <button type="button" class="btn-skill-edit"><%= link_to "スキルを編集する", index_skill_path, style: "color: white" %></button>
       </div>
     </div>
-  </body>
-</html>
+    <div style="width:500px; height:500px;">
+      <canvas id="myChart" data-controller="chart"></canvas>
+    </div>

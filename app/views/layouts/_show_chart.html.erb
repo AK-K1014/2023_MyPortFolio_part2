@@ -1,0 +1,30 @@
+<div class="chartbox">
+<canvas id="myChart"></canvas>
+<script>
+var ctx = document.getElementById("myChart");
+var myChart = new Chart(ctx, {
+  type: 'radar',
+  data: {
+    labels: ["評価1", "評価2", "評価3", "評価4"],
+    datasets: 
+    [
+        {
+        label:  gon.item.item_name ,
+        backgroundColor: 'rgba(255,140,0,0.2)',
+        borderColor: 'rgba(255,69,0,0.2)',
+        data: [gon.rate1, gon.rate2, gon.rate3, gon.rate4]
+        },
+    ]
+  },
+  options: {
+      scale: {
+          ticks: {
+              suggestedMin: 0,
+              suggestedMax: 5
+          }
+      }      
+  }
+});
+
+</script> 
+</div>

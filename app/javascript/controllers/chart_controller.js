@@ -4,21 +4,67 @@ import { Chart, BarController, BarElement, CategoryScale, LinearScale } from "ch
 Chart.register(BarController, BarElement, CategoryScale, LinearScale);
 
 export default class extends Controller {
+  static values = {
+    skillNames: Array,
+    skillLevels: Array
+  }
+
   connect() {
     this.createChart();
   }
 
   createChart() {
-    const ctx = document.getElementById('myChart').getContext('2d');
+    const ctx = this.element.querySelector('canvas').getContext('2d');
+    const skillNames = this.skillNamesValue || [];
+    console.log(skillNames)
+    const skillLevels = this.skillLevelsValue || [];
+    console.log(skillLevels)
+
     new Chart(ctx, {
       type: 'bar',
       data: {
-        labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+        labels: ['backend', 'frontend', 'infra'],
         datasets: [{
-          label: '# of Votes',
-          data: [12, 19, 3, 5, 2, 3],
-          borderColor: 'rgba(75, 192, 192, 1)',
-          backgroundColor: 'rgba(75, 192, 192, 0.2)',
+          label: skillNames,
+          data: skillLevels,
+          borderColor: [
+            'rgba(255,99,132,1)',
+            'rgba(54, 162, 235, 1)',
+            'rgba(255, 206, 86, 1)'
+          ],
+          backgroundColor: [
+            'rgba(25, 99, 132, 0.2)',
+            'rgba(54, 162, 235, 0.2)',
+            'rgba(255, 206, 86, 0.2)'
+          ]
+        },
+        {
+          label: skillNames,
+          data: skillLevels,
+          borderColor: [
+            'rgba(255,99,132,1)',
+            'rgba(54, 162, 235, 1)',
+            'rgba(255, 206, 86, 1)'
+          ],
+          backgroundColor: [
+            'rgba(25, 99, 132, 0.2)',
+            'rgba(54, 162, 235, 0.2)',
+            'rgba(255, 206, 86, 0.2)'
+          ]
+        },
+        {
+          label: skillNames,
+          data: skillLevels,
+          borderColor: [
+            'rgba(255,99,132,1)',
+            'rgba(54, 162, 235, 1)',
+            'rgba(255, 206, 86, 1)'
+          ],
+          backgroundColor: [
+            'rgba(25, 99, 132, 0.2)',
+            'rgba(54, 162, 235, 0.2)',
+            'rgba(255, 206, 86, 0.2)'
+          ]
         }]
       },
       options: {
@@ -32,6 +78,7 @@ export default class extends Controller {
           }
         }
       }
-    });
+    },
+    );
   }
 }

@@ -12,6 +12,11 @@
         <button type="button" class="btn-skill-edit"><%= link_to "スキルを編集する", index_skill_path, style: "color: white" %></button>
       </div>
     </div>
-    <div style="width:500px; height:500px;">
-      <canvas id="myChart" data-controller="chart"></canvas>
+
+    <div 
+        data-controller="chart"
+        data-chart-skill-names-value = '<%= @skills.map { |skill| skill.name }.to_json %>'
+        data-chart-skill-levels-value = '<%= @skills.map { |skill| skill.level }.to_json %>'
+        style="width:500px; height:500px;">
+      <canvas></canvas>
     </div>

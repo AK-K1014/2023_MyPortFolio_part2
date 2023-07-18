@@ -1,0 +1,12 @@
+{
+  "name": "my_portfolio",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/AK-K1014/2023_MyPortFolio_part2.git",
+  "author": "{KUDO} <{onigirithannsugithann@yahoo.co.jp}>",
+  "license": "MIT",
+  "dependencies": {
+    "@kurkle/color": "^0.3.2",
+    "chart.js": "^4.3.0"
+  }
+}

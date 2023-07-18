@@ -17,9 +17,9 @@
       data-controller="chart"
       <% grouped_skills = @skills.group_by(&:category_id) %>
       <% category_names = @categories.map { |category| [category.id, category.name] }.to_h %>
-      data-chart-category-ids-value = '<%= grouped_skills.map { |category_id, _| category_id }.to_json %>'
-      data-chart-skill-names-value = '<%= grouped_skills.map { |category_id, skills| {category_id: category_id, category_name: category_names[category_id], skill_names: skills.map(&:name)} }.to_json %>'
-      data-chart-skill-levels-value = '<%= grouped_skills.map { |category_id, skills| {category_id: category_id, skill_levels: skills.map(&:level)} }.to_json %>'
-      style="width:500px; height:500px;">
+        data-chart-category-ids-value = '<%= grouped_skills.map { |category_id, _| category_id }.to_json %>'
+        data-chart-skill-names-value = '<%= grouped_skills.map { |category_id, skills| {category_id: category_id, category_name: category_names[category_id], skill_names: skills.map(&:name)} }.to_json %>'
+        data-chart-skill-levels-value = '<%= grouped_skills.map { |category_id, skills| {category_id: category_id, skill_levels: skills.map(&:level)} }.to_json %>'
+        style="width:946px; height:500px; ">
       <canvas></canvas>
     </div>

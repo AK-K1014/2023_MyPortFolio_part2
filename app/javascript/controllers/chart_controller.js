@@ -18,27 +18,24 @@ export default class extends Controller {
     const ctx = this.element.querySelector('canvas').getContext('2d');
     const categoryIds = this.categoryIdsValue || [];
     const skillNames = this.skillNamesValue || [];
-    console.log(skillNames)
     const skillLevels = this.skillLevelsValue || [];
-    console.log(skillLevels)
 
     const datasets = skillNames.map((categoryData, i) => {
       const categoryId = categoryIds[i];
       const skillLevelsForCategory = skillLevels.filter(data => data.category_id === categoryId);
+      console.log(skillLevelsForCategory)
       return {
         label: categoryData.category_name,
         data: skillLevelsForCategory[0]?.skill_levels || [],
         borderColor:[
-          'rgba(25, 99, 132, 0.2)',
-          'rgba(54, 162, 235, 0.2)',
-          'rgba(255, 206, 86, 0.2)'],
-        backgroundColor: [
-          'rgba(255,99,132,1)',
-          'rgba(54, 162, 235, 1)',
-          'rgba(255, 206, 86, 1)'
-        ]
-      }
-    })
+          'rgba(25, 99, 132, 0.2)'],
+          backgroundColor: [
+            'rgba(255,99,132,1)',
+            'rgba(54, 162, 235, 1)',
+            'rgba(255, 206, 86, 1)'
+          ]
+        }
+      })
 
     new Chart(ctx, {
       type: 'bar',
